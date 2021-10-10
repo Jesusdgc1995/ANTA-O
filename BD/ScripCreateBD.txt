@@ -1,0 +1,85 @@
+use antano;
+
+CREATE TABLE pais(
+	id_pais INT auto_increment NOT NULL,
+    iso_pais VARCHAR(3) NOT NULL,
+    nom_pais VARCHAR(60)NOT NULL,
+    PRIMARY KEY(id_pais)
+);
+
+CREATE TABLE ciudad(
+	id_ciudad INT auto_increment NOT NULL,
+    nom_ciudad VARCHAR(60) NOT NULL,
+    id_pais INT NOT NULL,
+    PRIMARY KEY(id_ciudad),
+    FOREIGN KEY(id_pais) REFERENCES pais(id_pais)
+);
+
+CREATE TABLE usuario(
+	id_user INT auto_increment NOT NULL,
+    nom_user VARCHAR(100) NOT NULL,
+    email_user VARCHAR(100) NOT NULL,
+    pass_user VARCHAR(50) NOT NULL,
+    date_user DATE NOT NULL,
+    foto_user VARCHAR(300) NULL,
+    name_user VARCHAR(30) NOT NULL,
+    id_ciudad INT NOT NULL,
+    PRIMARY KEY(id_user),
+    FOREIGN KEY(id_ciudad) REFERENCES ciudad(id_ciudad)
+);
+
+CREATE TABLE vendedor(
+	id_vend INT auto_increment NOT NULL,
+    desc_vend VARCHAR(700) NOT NULL,
+    profecion_vend VARCHAR(100) NOT NULL,
+    id_user INT NOT NULL,
+    PRIMARY KEY(id_vend),
+    FOREIGN KEY(id_user) REFERENCES usuario(id_user)
+);
+
+CREATE TABLE comprador(
+	id_comp INT auto_increment NOT NULL,
+    desc_comp VARCHAR(700) NOT NULL,
+    id_user INT NOT NULL,
+    PRIMARY KEY(id_comp),
+    FOREIGN KEY(id_user) REFERENCES usuario(id_user)
+);
+
+CREATE TABLE categoria(
+	id_categoria INT auto_increment NOT NULL,
+    nom_categoria VARCHAR(20) NOT NULL,
+    PRIMARY KEY(id_categoria)
+);
+
+CREATE TABLE producto(
+	id_prod INT auto_increment NOT NULL,
+    nom_prod VARCHAR(60) NOT NULL,
+    desc_prod VARCHAR(700) NOT NULL,
+    precio_prod DOUBLE NOT NULL,
+    estado_prod boolean not null default FALSE,
+    id_categoria INT NOT NULL,
+    id_vend INT NOT NULL,
+    PRIMARY KEY(id_prod),
+    FOREIGN KEY(id_categoria) REFERENCES categoria(id_categoria),
+    FOREIGN KEY(id_vend) REFERENCES vendedor(id_vend)
+);
+
+CREATE TABLE imagprod(
+	id_img INT auto_increment NOT NULL,
+    url_img VARCHAR(300) NOT NULL,
+    nom_img VARCHAR(60) NOT NULL,
+    id_prod INT NOT NULL,
+    PRIMARY KEY(id_img),
+    FOREIGN KEY(id_prod) REFERENCES producto(id_prod)
+);
+
+CREATE TABLE compras(
+	id_compra INT auto_increment NOT NULL,
+    estado_compra VARCHAR(20) NOT NULL,
+    ref_pago VARCHAR(100) NOT NULL,
+    id_prod INT NOT NULL,
+    id_comp INT NOT NULL,
+    PRIMARY KEY(id_compra),
+    FOREIGN KEY(id_prod) REFERENCES producto(id_prod),
+    FOREIGN KEY(id_comp) REFERENCES comprador(id_comp)
+);

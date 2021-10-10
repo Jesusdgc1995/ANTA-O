@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class Conexion {
-    private static final String JDBC_URL = "jdbc:mysql://database-1.cfr4t9zs02bo.us-east-2.rds.amazonaws.com:3306/control_clientes?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://database-1.cfr4t9zs02bo.us-east-2.rds.amazonaws.com:3306/antano?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER = "admin";
     private static final String JDBC_PASSWORD = "admindbsol";
     
