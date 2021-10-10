@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #dfe6e9;
+}
+
+/* login */
+
+#cart-login {
+    width: 20rem;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+#cart-login .card-body a {
+    background-color: #dfe6e9;
+}
+
+#cart-login .card-body img {
+    width: 150px;
+    height: 150px;
+}
+
+#cart-login .card-footer a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* registro */
+
+#cart-register {
+    width: 20rem;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+
+#cart-register .card-body button {
+    background-color: #dfe6e9;
+}
+
+#cart-register .card-body img {
+    width: 150px;
+    height: 150px;
+}
+
+#cart-register .card-footer a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* home page */
+
+.navbar #user {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* Shoping Cart */
+
+#titleshopingcart{
+    margin-bottom: 40px;
+}
